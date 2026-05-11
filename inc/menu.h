@@ -7,4 +7,4 @@ typedef struct
     int empty_stacks;
 } GameConfig;
 
-void run_menu(int rows, int cols, GameConfig *config);
+int run_menu(int rows, int cols, GameConfig *config);

@@ -12,7 +12,7 @@ int main()
         .empty_stacks = 1
     };
 
-    run_menu(rows, cols, &config);
+    if (run_menu(rows, cols, &config)) { endwin(); return 0; } // run_menu returns 1 if user exited menu by 'q'
     run_game(rows, cols, &config);
 
     endwin();
