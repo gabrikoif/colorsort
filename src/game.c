@@ -64,7 +64,7 @@ static void init_stacks(Node **stacks)
 
     for (int i = 0; i < num_color_stacks; i++)
     {
-        stacks[i] = NULL;
+        stacks[i] = create_list(0);
         for (int j = 0; j < MAX_SIZE; j++)
             push(&stacks[i], COLOR_RED + (i % 6));
     }
@@ -148,7 +148,7 @@ void run_game(int rows, int cols, GameConfig *config)
         }
     }
 
-    if (held == -1)
+    if (held != -1)
     {
         push(&stacks[source], held);
     }

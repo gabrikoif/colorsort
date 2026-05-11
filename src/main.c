@@ -12,6 +12,7 @@ int main()
         .empty_stacks = 1
     };
 
+    run_menu(rows, cols, &config);
     run_game(rows, cols, &config);
 
     endwin();
