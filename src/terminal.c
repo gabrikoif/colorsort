@@ -1,6 +1,5 @@
-#include "platform_utils.h"
-#include "ui.h"
 #include "terminal.h"
+#include "platform_utils.h"
 
 void init(int *rows, int *cols)
 {
@@ -11,27 +10,9 @@ void init(int *rows, int *cols)
     noecho();
     keypad(stdscr, TRUE);
     getmaxyx(stdscr, *rows, *cols);
-}
 
-void draw_box(int row, int col, int height, int width, int color, int pair)
-{
-    init_pair(pair, color, color);
-    attron(COLOR_PAIR(pair));
-    for (int i = row; i < row + height; i++)
-        mvhline(i, col, ' ', width);
-    attroff(COLOR_PAIR(pair));
-}
-
-void draw_stack(int start_row, int col, int box_height, int box_width, Node *head)
-{
-    clear();
-    int i = 0;
-    while (head != NULL)
-    {
-        int row = start_row + i * box_height;
-        draw_box(row, col, box_height, box_width, head->data, 32 + i);
-        head = head->next;
-        i++;
-    }
-    refresh();
+    init_pair(COLOR_RED, COLOR_RED, COLOR_RED);
+    init_pair(COLOR_BLUE, COLOR_BLUE, COLOR_BLUE);
+    init_pair(COLOR_GREEN, COLOR_GREEN, COLOR_GREEN);
+    init_pair(COLOR_YELLOW, COLOR_YELLOW, COLOR_YELLOW);
 }

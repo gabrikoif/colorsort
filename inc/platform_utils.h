@@ -18,9 +18,3 @@ static inline void cSleep(int milliseconds) {
     sleep(milliseconds / 1000); // sleep(int) takes seconds instead of millliseconds.
 #endif
 }
-
-// Cross-platform console clear
-static inline void clearConsole() {
-    clear();
-    refresh();
-}
