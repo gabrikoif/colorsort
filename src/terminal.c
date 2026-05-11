@@ -9,6 +9,7 @@ void init(int *rows, int *cols)
     cbreak();
     noecho();
     keypad(stdscr, TRUE);
+    set_escdelay(25);
     getmaxyx(stdscr, *rows, *cols);
 
     init_pair(COLOR_RED, COLOR_RED, COLOR_RED);
