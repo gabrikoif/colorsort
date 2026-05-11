@@ -63,7 +63,7 @@ static void draw_menu(int rows, int cols, GameConfig *config,
     refresh();
 }
 
-void run_menu(int rows, int cols, GameConfig *config)
+int run_menu(int rows, int cols, GameConfig *config)
 {
     int cursor = 0;
     int editing = 0;
@@ -117,7 +117,7 @@ void run_menu(int rows, int cols, GameConfig *config)
             case '\n':
             case KEY_ENTER:
                 if (cursor == NUM_ITEMS - 1)
-                    return; // Start game
+                    return 0; // Start game
                 else
                     editing = 1;
                 break;
@@ -126,4 +126,6 @@ void run_menu(int rows, int cols, GameConfig *config)
 
         draw_menu(rows, cols, config, cursor, editing);
     }
+
+    return 1;
 }
