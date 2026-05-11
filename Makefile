@@ -27,6 +27,10 @@ $(BUILD_DIR)/%.o: src/%.c | $(BUILD_DIR)
 
 -include $(DEPS)
 
+run: 
+	$(MAKE)
+	./$(TARGET)
+
 clean:
 ifeq ($(OS), Windows_NT)
 	rmdir /s /q $(BUILD_DIR)
@@ -36,4 +40,4 @@ else
 	rm -f $(TARGET)
 endif
 
-.PHONY: clean
+.PHONY: clean run
