@@ -9,6 +9,7 @@
     #include <ncurses.h>
 #endif
 #include <stdlib.h>
+#include <time.h>
 
 // Cross-platform sleep (milliseconds)
 static inline void cSleep(int milliseconds) {
@@ -17,10 +18,4 @@ static inline void cSleep(int milliseconds) {
 #else
     sleep(milliseconds / 1000); // sleep(int) takes seconds instead of millliseconds.
 #endif
-}
-
-// Cross-platform console clear
-static inline void clearConsole() {
-    clear();
-    refresh();
 }
